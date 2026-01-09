@@ -1,3 +1,10 @@
+:root{
+  --neon:#00ffd5;
+  --pink:#ff2fd0;
+  --blue:#4cc9ff;
+  --bg:#050505;
+}
+
 .app {
   display: flex;
   flex-direction: column;
@@ -17,6 +24,7 @@ body {
   align-items: center;
   overflow: hidden;
   color: white;
+  font-family: 'Inter', sans-serif;
 }
 
 
@@ -34,8 +42,79 @@ canvas {
 button {
   margin-top: 12px;
   padding: 10px 20px;
-  background: #00ffd5;
+  background: linear-gradient(135deg, var(--neon), var(--blue));
+  color: black;
+  box-shadow:
+    0 0 15px rgba(0,255,213,.8),
+    0 0 40px rgba(76,201,255,.3);
   border: none;
   border-radius: 6px;
   cursor: pointer;
 } 
+button:hover{
+  transform:scale(1.05);
+}
+.landing{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.controls{
+  margin-bottom:10px;
+}
+.landing,.controls{
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(16px);
+  padding:26px 40px;
+  border-radius:20px;
+  box-shadow:
+    0 0 40px rgba(0,255,213,.15),
+    inset 0 0 20px rgba(255,255,255,.05);
+}
+
+.hidden{
+  display:none;
+}
+
+h1{
+  margin-bottom:4px;
+  font-weight:600;
+  letter-spacing:2px;
+  color: var(--neon);
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+}
+
+p{
+  opacity:.7;
+  margin-bottom:14px;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle,#ffffff22 1px,transparent 1px),
+    radial-gradient(circle,#ffffff15 1px,transparent 1px),
+    radial-gradient(circle,#ffffff10 1px,transparent 1px);
+  background-size: 40px 40px, 70px 70px, 120px 120px;
+  animation: stars 90s linear infinite;
+  pointer-events:none;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(0,255,213,.12), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(76,201,255,.10), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(255,47,208,.08), transparent 65%);
+  filter: blur(60px);
+  pointer-events:none;
+}
+
+@keyframes stars{
+  from{ transform:translateY(0); }
+  to{ transform:translateY(-1200px); }
+}
