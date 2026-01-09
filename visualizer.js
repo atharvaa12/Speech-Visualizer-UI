@@ -104,7 +104,7 @@ ctx.stroke();
   for(let i=0;i<data.length;i++){
     const angle = i/data.length*Math.PI*2+rot;
     const power = data[i]/255;
-    const bar = power*radius*0.95;
+    const bar = power*radius*0.7;
 
     const x1=cx+Math.cos(angle)*radius;
     const y1=cy+Math.sin(angle)*radius;
